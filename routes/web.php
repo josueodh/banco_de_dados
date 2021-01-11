@@ -19,4 +19,6 @@ Route::middleware('auth')->group(function () {
         return view('layouts.master');
     });
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/categorias', 'CategoryController')->names('categories')->parameters(['categorias' => 'category'])->except('show');
+    Route::resource('/editoras', 'PublishingCompanyController')->names('publishingCompanies')->parameters(['editoras' => 'publishingCompany'])->except('show');
 });
